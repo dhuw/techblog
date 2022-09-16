@@ -1,0 +1,35 @@
+{
+  "name": "techblog",
+  "version": "1.0.0",
+  "description": "it is tech blog?",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeds/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhuw/techblog.git"
+  },
+  "author": "dhuw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dhuw/techblog/issues"
+  },
+  "homepage": "https://github.com/dhuw/techblog#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "handlebars": "^4.7.7",
+    "jest": "^29.0.3",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.22.1"
+  }
+}
