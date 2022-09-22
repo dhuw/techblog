@@ -1,39 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MVC Tech Blog</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tech Blog
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
+
 <body>
-  <div class="wrapper">
-      <header class="hero">
-          <div>
-            <nav class"nav">
-                    <a class="link" href="/">Home</a>
-                    <a class="link" href="/dashboard">Dashboard</a>
-                    {{#if loggedIn}}
-                    <a class="link" href="/" id="logout">Logout</a>
-                    {{else}}
-                    <a class="link" href="/login">Login</a>
-                    {{/if}}
-                </nav>          
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Ben's Tech Blog</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+
+              <!-- render login or logout -->
+              {{#if logged_in}}
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+              <a class="nav-link" id="logout" href="/">Logout</a>
+              {{else}}
+              <a class="nav-link" href="/signup">Sign up</a>
+              <a class="nav-link" href="/login">Login</a>
+              {{/if}}
+
+            </div>
           </div>
+        </div>
+      </nav>
 
-          <h1 class="app-title"><i class="fab "></i>The Tech Blog</h1>
-      </header>
-
+    </header>
     <main>
-      {{{ body }}}
+      <!-- render the sub layout -->
+      <div class="container justify-content-center">
+     {{{ body }}}
+      </div>
     </main>
+    <footer>
+
+    </footer>
   </div>
 
-    {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}}
+  <!-- render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
 
 </body>
 

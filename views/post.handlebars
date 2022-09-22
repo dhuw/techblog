@@ -1,15 +1,60 @@
-<div class="card">
-    <h3 class="card-header">Create New Post</h3>
-    <form class="card-body new-post-form" id="new-post-form">
-        <label for="post-title" class="form-label">Title</label>
-        <input type="text" id="post-title" name="post-title" class="form-input" />
+<h1 id="postID" style="display:none">{{postID}}</h1>
 
+{{#each posts as |post| }}
+<div class="card post-list" style="width: 50rem;">
+    <div class="card-body">
+        <p style="display:none" class="post_id">{{post.id}}</p>
+        <h5 class="card-title">{{post.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Posted by {{post.user.username}} at {{format_date post.create_date}}
+        </h6>
+        <p class="card-text">{{post.text}}</p>
+    </div>
+</div>
+{{/each}}
 
-        <label class="form-label" for="content">Content</label>
-        <input id="content" name="content" class="form-input" />
-
-        <button type="submit" class="btn">Create</button>
-    </form>
+{{#if editable}}
+<div class="editables" style="text-align:center">
+    <button id="delete-btn" type="submit" class="btn btn-sm btn-danger" data-id="{{postID}}">DELETE</button>
+    <a href="/postupdate/{{postID}}">Update Post</a>
+    {{/if}}
 </div>
 
-<script src="/javascript/add-post.js"></script>
+{{#if logged_in}}
+<div style="text-align:center">
+    <p>
+        {{!-- Comment button --}}
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            New Comment
+        </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+
+            {{!-- Create comment submit form here --}}
+            <form class="new-comment" style="width: 20rem;">
+                <div class="mb-3">
+                    <label for="textInput" class="form-label">Comment text:</label>
+                    <textarea type="text" class="form-control" id="comment-text" rows="3"></textarea>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+
+<div class='mb-3' style="margin:2rem">
+    <h4>Comments</h4>
+    {{#each (reverseArray comments) as |comment|}}
+    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{user.username}} on {{format_date comment.create_date}}</div>
+        <p class="card-text" style="text-align:center; margin:1rem">{{text}}</p>
+    </div>
+    {{/each}}
+</div>
+
+
+<script src="./js/delete_post.js"></script>
+<script src="./js/comment.js"></script>

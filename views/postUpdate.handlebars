@@ -1,20 +1,15 @@
-{{> post-info post}}
+{{#each posts as |post|}}
+<form class="post-form" style="width: 70rem; margin:2rem;">
+  <h1>Update Post ID:{{post.id}}</h1>
+  <div class="mb-8">
+    <label for="titleInput" class="form-label">Post Title</label>
+    <textarea type="text" class="form-control" id="post-title">{{post.title}}</textarea>
+    <label for="textInput" class="form-label">Post body</label>
+    <textarea type="text" class="form-control" id="post-text" rows="10">{{post.text}}</textarea>
+    <button type="button" class="btn btn-sm btn-danger" data-id="{{post.id}}">submit</button>
+  </div>
+</form>
+{{/each}}
 
-{{#if loggedIn}}
-<div class="card">
-    <h3 class="card-header"></h3>
-    <form class="card-body comment-form" id="comment-form">
 
-        <label class="form-label">Comment</label>
-        <input id="comment" name="comment-body" class="form-input" />
-
-        <button type="submit" class="btn">Submit</button>
-    </form>
-</div>
-{{/if}}
-
-{{> comments post.comments}}
-
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-{{/if}}
+<script src="../js/update_post.js"></script>

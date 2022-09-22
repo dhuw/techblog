@@ -1,7 +1,10 @@
-<article class="post">
-
-    {{#each posts as |post| }}
-        {{> post-info post}}
-    {{/each}}
-
-</article>
+{{#each (reverseArray posts) as |post| }}
+<div class="card col-sm" style="margin:.5rem;" >
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Posted by {{post.user.username}} at {{format_date post.create_date}}</h6>
+    <p class="card-text">{{post.text}}</p>
+    <a href="/{{post.id}}" class="stretched-link"></a>
+  </div>
+</div>
+{{/each}}

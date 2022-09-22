@@ -1,13 +1,35 @@
-{{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-    {{#each posts as |post|}}
-      {{> dashboard-postinfo post}}
-    {{/each}}
+<h1 style="text-align: center;">Your Dashboard</h1>
 
-</section>
-{{/if}}
+  {{!-- new post form --}}
+  <form class="post-form" style="text-align: center; margin:2rem;">
+    <h3>New Post</h3>
+    <div class="mb-3">
+      <label for="titleInput" class="form-label">Post Title</label>
+      <input type="text" class="form-control" id="post-title">
+    </div>
+    <div class="mb-3">
+      <label for="textInput" class="form-label">Post body</label>
+      <textarea type="text" class="form-control" id="post-text" rows="3"></textarea>
+      <button type="submit" class="btn btn-primary whatever">Submit</button>
+    </div>
+</form>
 
-<button type="submit" class="btn"><a class="link" href="/dashboard/new">+ New Post</a></button>
+<h1 style="text-align: center;">Your Post History</h1>
 
-<script src="/javascript/add-post.js"></script>
+<div class="col">
+{{!-- Show all historical posts --}}
+{{#each (reverseArray posts) as |post| }}
+<div class="card">
+  <div class="post-id" style="display:none">{{post.id}}</div>
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Posted by YOU at {{format_date post.create_date}}</h6>
+      <p class="card-text">{{post.text}}</p>
+      <a href="/{{post.id}}" class="stretched-link"></a>
+    </div>
+  </div>
+</div>
+{{/each}}
+</div>
+
+<script src="./js/post.js"></script>
