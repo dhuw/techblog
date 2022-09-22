@@ -1,0 +1,17 @@
+[
+    {
+      "text":"I love this post",
+      "user_id": "1",
+      "post_id": "1"
+    },
+    {
+        "text":"This is real neato",
+        "user_id": "2",
+        "post_id": "1"
+      },
+      {
+        "text":"cool cool cool cool cool",
+        "user_id": "3",
+        "post_id": "1"
+      }
+  ]
