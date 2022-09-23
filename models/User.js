@@ -4,6 +4,7 @@ const sequelize = require('../config/connection');
 
 class User extends Model {
   checkPassword(loginPw) {
+    //compare the hashed pw with the one in the database
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
@@ -24,16 +25,18 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8], 
+        len: [8], //Modify this
       },
     },
   },
   {
     hooks: {
       beforeCreate: async (newUserData) => {
+        //hash the password input
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
+      // BP MAYBE GET RID OF THIS? ===============================================================================================================
       beforeUpdate: async (updatedUserData) => {
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         return updatedUserData;
