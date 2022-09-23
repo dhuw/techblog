@@ -1,17 +1,17 @@
 [
     {
-        "title": "Cool Tech",
-        "text": "Cool tech is cool. And I like that. I love tech that makes me feel cool.",
+        "title": "Is this tech blog?",
+        "text": "Oh, It is tech blog.",
         "user_id": "1"
     },
     {
-        "title": "AwEsOmE TeChBlOg",
-        "text": "I like edgy tech that edges on the edge of technology. It's RAD. DARKRIDER OUT.",
+        "title": "Computers",
+        "text": "BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH.",
         "user_id": "2"
     },
     {
-        "title": "Knitting technology",
-        "text": "Knitting needles these days are so tech-forward. Sometime I had to ask my grandson to reboot my needles for me.",
+        "title": "This project took me forever",
+        "text": "I think I can finally submit this assignment.",
         "user_id": "3"
     }
 ]
