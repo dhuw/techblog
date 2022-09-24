@@ -13,9 +13,13 @@
   ## Installation
   - npm init
   - npm install
+  - mysql SOURCE db/schema.sql
+  - npm run seed
+  - nodemon server.js
   
   ## Links
- *link*
+  https://www.awesomescreenshot.com/video/11269143?key=e7150e56ee2424efb3a4375ee2632afe
+  
   ## License
   ![badge](https://img.shields.io/badge/license-MIT-brightgreen)
   <br />
